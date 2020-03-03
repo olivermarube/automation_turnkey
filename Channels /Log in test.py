@@ -1,19 +1,10 @@
-
-#check if image is displayed
-
-#command will get email field and send in valid email credentials
-#username = driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div[2]/form/fieldset/div[1]/div/input").send_keys("oliver@arifu.com")
-#assertEquals(username)
-
-
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-
 import time
 
-#class admindashboard(unitesst.testcases)
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.firefox.options import Options
 
-###automation of turnkey admin settings
 
 #Launch the web browser
 driver = webdriver.Firefox()
@@ -43,24 +34,31 @@ print(element.is_displayed())
 
 #verify sign in button
 element = driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div[2]/form/fieldset/div[3]")
+time.sleep(3)
 print(element.is_displayed())
 
 #verify arifu logo is displayed
 
 element = driver.find_element_by_xpath("/html/body/div/div/div/div/div[1]/a/img")
+time.sleep(3)
 print(element.is_displayed())
 #time.sleep(5)
 
 #Log in with valid credentials
 driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div[2]/form/fieldset/div[1]/div/input").send_keys("olly@arifu.com")
+time.sleep(3)
 print("username successfully added")
 ##time.sleep(5)
 ##.send.key is for entering text into a text field
 driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div[2]/form/fieldset/div[2]/div/input").send_keys("4r1fuD3fault")
-
+time.sleep(3)
 print("password successfully added")
+
 ##.click() functionality is a command for the action click
-driver.find_element_by_css_selector(".mb-3").click()
+driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div[2]/form/fieldset/div[3]/button/span[1]/span").click()
+time.sleep(3)
+driver.quit()
+
 
 
 
